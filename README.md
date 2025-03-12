@@ -5,9 +5,10 @@ This project focuses on demonstrating essential data cleaning techniques, applyi
 Using the provided datasets ([Dataset 1 Link] and [Dataset 2 Link]), we will explore and implement various cleaning methods to transform messy data into high-quality, structured information suitable for analysis and decision-making. 
 
 ## PROBLEM STATEMENT
-1. Missing Data Handling and Data Integrity
-   - Detect and handle any missing values in the dataset.
+1. Data Integrity and Handling Missing Data
+   - Identify and correct inconsistencies in observational units across all variables (columns).
    - Identify and resolve inconsistencies in data formats (e.g., date formats, text casing).
+   - Detect and handle any missing values in the dataset.
 2. Duplicate Handling
    - Identify and remove duplicate records if any to maintain data uniqueness.
 3. Standardization
@@ -61,13 +62,17 @@ Data assessment is a fundamental process in evaluating imported data to determin
 
 Several attributes and functions provided by the pandas library were employed for data assessment, including:
 
-- df.shape: It returns the dimensions of the DataFrame (number of rows and columns). In this case, the dataset contains 1,000 rows and 9 columns.
-- df.info(): This provides a concise summary of the DataFrame, including data types and memory usage. The output revealed that the "date column" has an incorrect data type (object - instead of datetime), as highlighted with a yellow rectangle shape in the snapshot below.
-- df.isnull().sum(): Counts the number of missing values in each column. The result indicates that there are no missing values in the dataset.
+- df.shape: It returns the dimensions of the DataFrame (number of rows and columns). In this case, the dataset contains 48,895 rows and 16 columns.
+- df.columns: Displays all the columns in the dataframe
+- df['columns'].value_counts() – Examines the 16 columns each to understand its unique categories, their frequencies and check for inconsistencies in observational units across all variables (columns) and data formats.
+- df.info(): This provides a concise summary of the DataFrame, including data types and memory usage. The output revealed that the "last_review column" has an incorrect data type (object - instead of datetime), as highlighted with a yellow rectangle shape in the snapshot below.
+- df.isnull().sum(): Counts the number of missing values in each column. The result indicates that the columns, name, host_name, last_review and review_per_month has missing values and they are 16, 21, 10052 and 10052 respectively.
 - df.duplicated().sum(): Identifies duplicate rows in the DataFrame. The output confirms that no duplicate records are present.
  
 Findings:  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Based on these assessments, the only data quality issue detected was the incorrect data type for the date column
+Based on these assessments, the data quality issues detected are as follows:
+
+
 These assessments and data quality issue detected are illustrated in the snapshots below. 
 A    |B    
 :---:|:---:
