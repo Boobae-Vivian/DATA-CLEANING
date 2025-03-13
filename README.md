@@ -6,7 +6,7 @@ Using the provided datasets, we will explore and implement various cleaning meth
 
 ## PROBLEM STATEMENT
 1. Standardization
-   - Standardize categorical variables by ensuring consistency in text casing, spelling, and data types.
+   - Standardize categorical variables by ensuring consistency in text casing
    - Identify and correct inconsistencies in data formats (e.g., date formats, text casing, categorical values, numerical values).
 3. Handling Missing Data
    - Detect and handle any missing values in the dataset.
@@ -58,17 +58,31 @@ Data assessment is a fundamental process in evaluating imported data to determin
 &nbsp;&nbsp;&nbsp;First, after importing the data, we perform a visual assessment, where we examine the dataset by simply looking through it just as the name implies, this step does not require any code. we manually inspect the data to identify obvious issues such as wrong columns, wrong spellings, inconsistencies, or incorrect formatting.  
 &nbsp;&nbsp;&nbsp;Next, we conduct a programmatic assessment to analyze the data in greater depth. This involves using code to detect potential issues, particularly when working with large datasets that contain numerous rows and columns. 
 
-Several attributes and functions provided by the pandas library were employed for data assessment, including:
+Several Pandas attributes and functions were used for data assessment to identify potential issues in the dataset. These include:
 
-- df.shape: It is neccesary to know dimensions of the dataframe and the df.shape attribute helps us achieve that. It returns the dimensions of the DataFrame (number of rows and columns). In this case, the dataset contains 48,895 rows and 16 columns.
-- df.columns: Since the major purpose of this project is to clean and maintain data integrity, it is important to display the columns of the dataset as it is going to be used throughtout the data cleaning processes. The df.columns Displays all the 16 columns in the dataframe 
-- df['columns'].value_counts() – This line of code examines the 16 columns each to understand its unique categories, their frequencies and check for inconsistencies in observational units across all variables(columns). Here it was found that the name column
-- df.info(): This provides a concise summary of the DataFrame, including data types and memory usage. The output revealed that the "last_review column" has an incorrect data type (object - instead of datetime), as highlighted with a yellow rectangle shape in the snapshot below.
-- df.isnull().sum(): Counts the number of missing values in each column. The result indicates that the columns, name, host_name, last_review and review_per_month has missing values and they are 16, 21, 10052 and 10052 respectively.
-- df.duplicated().sum(): Identifies duplicate rows in the DataFrame. The output confirms that no duplicate records are present.
- 
-Findings:  
-Based on these assessments, the data quality issues detected are as follows:
+- df.shape: Understanding the dimensions of the dataset is crucial. This attribute returns the number of rows and columns in the DataFrame. In this case, the dataset contains 48,895 rows and 16 columns.
+
+- df.columns: Since data cleaning focuses on maintaining integrity, it is important to review the column names. This function displays all 16 column names. During the assessment, it was observed that all column names started with lowercase letters, which may need standardization.
+
+- df['column_name'].value_counts(): This function helps analyze categorical variables by displaying unique values and their frequencies. It also aids in detecting inconsistencies in observational units across variables. The pd.set_option('display.max_rows', None) was utilized to critically examine each columns.  
+Key findings include:
+  - name column has text casing inconsistencies.
+  - last_review column is incorrectly stored as an object instead of a datetime format.
+    
+- df.isnull().sum(): Identifies missing values in each column. The following columns were found to have missing values:
+  - name: 16 missing values
+  - host_name: 21 missing values
+  - last_review: 10,052 missing values
+  - review_per_month: 10,052 missing values
+    
+- df.duplicated().sum(): Checks for duplicate records. The output confirms that no duplicate entries are present in the dataset.
+
+Findings:
+The data quality issues identified include:
+- Column Name Formatting: All column names start with lowercase letters and needs capitalization.
+- Text Casing Issues: The name column contains inconsistent text casing.
+- Incorrect Data Type: The last_review column is stored as an object instead of a datetime format.
+- Missing Values: The name, host_name, last_review, and review_per_month columns contain missing values, with the last two having a significant amount (10,052 missing values each).
 
 
 These assessments and data quality issue detected are illustrated in the snapshots below. 
@@ -78,7 +92,14 @@ A    |B
 
 3. "Data Cleaning (Analysis of the Problem Statement)":
    ---
-1, 
+1,  Standardization:
+    --
+    - Standardize categorical variables by ensuring consistency in text casing
+    ---
+    Based on the assessment done using df.columns and the issue detected which is the columns names starting with lowercase letters, theres a need to standardise the columns by capitalizing the column names and to do that, 
+    
+    
+   
 1, Missing Data and Data Integrity:
    -- 
    - Detect and handle any missing values in the dataset
