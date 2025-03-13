@@ -1,22 +1,20 @@
 # DATA-CLEANING
 ## INTRODUCTION
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Data cleaning is a fundamental step in the data analysis pipeline, ensuring that datasets are accurate, consistent, and ready for meaningful insights. Raw data often contains errors such as missing values, duplicates, inconsistencies, and outliers, which can lead to misleading conclusions if left unaddressed.  
+&nbsp;&nbsp;&nbsp;&nbsp;Data cleaning is a fundamental step in the data analysis pipeline, ensuring that datasets are accurate, consistent, and ready for meaningful insights. Raw data often contains errors such as missing values, duplicates, inconsistencies, and outliers, which can lead to misleading conclusions if left unaddressed.  
 This project focuses on demonstrating essential data cleaning techniques, applying best practices to real-world datasets. By working through key challenges such as handling missing data, removing duplicates, standardizing formats, and detecting outliers, we aim to improve data integrity and reliability.  
-Using the provided datasets ([Dataset 1 Link] and [Dataset 2 Link]), we will explore and implement various cleaning methods to transform messy data into high-quality, structured information suitable for analysis and decision-making. 
+Using the provided datasets, we will explore and implement various cleaning methods to transform messy data into high-quality, structured information suitable for analysis and decision-making. 
 
 ## PROBLEM STATEMENT
-1. Data Integrity and Handling Missing Data
-   - Identify and correct inconsistencies in observational units across all variables (columns).
-   - Identify and resolve inconsistencies in data formats (e.g., date formats, text casing).
+1. Standardization
+   - Standardize categorical variables by ensuring consistency in text casing, spelling, and data types.
+   - Identify and correct inconsistencies in data formats (e.g., date formats, text casing, categorical values, numerical values).
+3. Handling Missing Data
    - Detect and handle any missing values in the dataset.
-2. Duplicate Handling
+4. Duplicate Handling
    - Identify and remove duplicate records if any to maintain data uniqueness.
-3. Standardization
-   - Ensure categorical variables (columns) are consistent in format and spelling.
-   - Verify that numerical values are standardized across the dataset.
-4. Outlier Detection
+5. Outlier Detection
    - Identify and address extreme values (outliers) that could distort analysis.
-5. Final Data Quality Check
+6. Final Data Quality Check
    - Validate that the cleaned dataset is accurate, complete, and consistent for analysis.
      
 ## SKILLS and CONCEPTS DEMONSTRATED
@@ -62,9 +60,9 @@ Data assessment is a fundamental process in evaluating imported data to determin
 
 Several attributes and functions provided by the pandas library were employed for data assessment, including:
 
-- df.shape: It returns the dimensions of the DataFrame (number of rows and columns). In this case, the dataset contains 48,895 rows and 16 columns.
-- df.columns: Displays all the columns in the dataframe
-- df['columns'].value_counts() – Examines the 16 columns each to understand its unique categories, their frequencies and check for inconsistencies in observational units across all variables (columns) and data formats.
+- df.shape: It is neccesary to know dimensions of the dataframe and the df.shape attribute helps us achieve that. It returns the dimensions of the DataFrame (number of rows and columns). In this case, the dataset contains 48,895 rows and 16 columns.
+- df.columns: Since the major purpose of this project is to clean and maintain data integrity, it is important to display the columns of the dataset as it is going to be used throughtout the data cleaning processes. The df.columns Displays all the 16 columns in the dataframe 
+- df['columns'].value_counts() – This line of code examines the 16 columns each to understand its unique categories, their frequencies and check for inconsistencies in observational units across all variables(columns). Here it was found that the name column
 - df.info(): This provides a concise summary of the DataFrame, including data types and memory usage. The output revealed that the "last_review column" has an incorrect data type (object - instead of datetime), as highlighted with a yellow rectangle shape in the snapshot below.
 - df.isnull().sum(): Counts the number of missing values in each column. The result indicates that the columns, name, host_name, last_review and review_per_month has missing values and they are 16, 21, 10052 and 10052 respectively.
 - df.duplicated().sum(): Identifies duplicate rows in the DataFrame. The output confirms that no duplicate records are present.
@@ -80,8 +78,9 @@ A    |B
 
 3. "Data Cleaning (Analysis of the Problem Statement)":
    ---
-1, Missing Data Handling and Data Integrity:
-   --
+1, 
+1, Missing Data and Data Integrity:
+   -- 
    - Detect and handle any missing values in the dataset
    ---
 
