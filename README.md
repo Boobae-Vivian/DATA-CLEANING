@@ -6,7 +6,8 @@ Using the provided datasets, we will explore and implement various cleaning meth
 
 ## PROBLEM STATEMENT
 1. Standardization
-   - Standardize categorical variables by ensuring consistency in text casing
+   - Standardize column names by capitalizing all letters to ensure consistency in formatting
+   - Identify and rename columns with lengthy or unclear names
    - Identify and correct inconsistencies in data formats (e.g., date formats, text casing, categorical values, numerical values).
 3. Handling Missing Data
    - Detect and handle any missing values in the dataset.
@@ -62,7 +63,7 @@ Several Pandas attributes and functions were used for data assessment to identif
 
 - df.shape: Understanding the dimensions of the dataset is crucial. This attribute returns the number of rows and columns in the DataFrame. In this case, the dataset contains 48,895 rows and 16 columns.
 
-- df.columns: Since data cleaning focuses on maintaining integrity, it is important to review the column names. This function displays all 16 column names. During the assessment, it was observed that all column names started with lowercase letters, which may need standardization.
+- df.columns: Since data cleaning focuses on maintaining integrity, it is important to review the column names. This function displays all 16 column names. During the assessment, it was observed that all column names started with lowercase letters, which would require standardization. Additionally, one column had a lengthy name that would be shortened for clarity and readability.
 
 - df['column_name'].value_counts(): This function helps analyze categorical variables by displaying unique values and their frequencies. It also aids in detecting inconsistencies in observational units across variables. The pd.set_option('display.max_rows', None) was utilized to critically examine each columns.  
 Key findings include:
@@ -79,7 +80,8 @@ Key findings include:
 
 Findings:
 The data quality issues identified include:
-- Column Name Formatting: All column names start with lowercase letters and needs capitalization.
+- Column Name Formatting: All column names start with lowercase letters and needs capitalization
+- A lengthy and unclear column name (Calculated_Host_Listing_Count) which needs to be shortened for clarity and readability.
 - Text Casing Issues: The name column contains inconsistent text casing.
 - Incorrect Data Type: The last_review column is stored as an object instead of a datetime format.
 - Missing Values: The name, host_name, last_review, and review_per_month columns contain missing values, with the last two having a significant amount (10,052 missing values each).
@@ -92,11 +94,19 @@ A    |B
 
 3. "Data Cleaning (Analysis of the Problem Statement)":
    ---
-1,  Standardization:
-    --
-    - Standardize categorical variables by ensuring consistency in text casing
-    ---
-    Based on the assessment done using df.columns and the issue detected which is the columns names starting with lowercase letters, theres a need to standardise the columns by capitalizing the column names and to do that, 
+1, Standardization:
+   --
+   - Standardize column names by capitalizing all letters to ensure consistency in formatting
+   ---
+   Based on the assessment using df.columns, it was observed that all column names start with lowercase letters. To ensure consistency, there is a need to standardize the column names by converting them to uppercase.
+
+To achieve this, we use the .upper() string method, which converts all characters in a string to uppercase. The syntax is as follows:
+```python
+df.columns = df.columns.str.upper()  # Capitalize all column names
+df.columns  # Verify the transformation
+```
+The code snippet used to achieve this and its output are shown in the snapshot below.
+  
     
     
    
