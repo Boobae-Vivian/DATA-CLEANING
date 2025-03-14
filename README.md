@@ -8,7 +8,7 @@ Using the provided datasets, we will explore and implement various cleaning meth
 1. Standardization
    - Standardize column names by capitalizing all letters to ensure consistency in formatting
    - Identify and rename columns with lengthy and unclear names
-   - Identify and correct inconsistencies in data formats (e.g., date formats, text casing, categorical values, numerical values).
+   - Identify and correct inconsistencies in data formats.
 3. Handling Missing Data
    - Detect and handle any missing values in the dataset.
 4. Duplicate Handling
@@ -126,7 +126,23 @@ A    |B
    ```
    The output of the above is shown in the snapshot below.
 
-   - (c). Identify and correct inconsistencies in data formats (e.g., date formats, text casing, categorical values, numerical values):
+   - (c). Identify and correct inconsistencies in data formats:
+   ---
+   - (i). Text Casing Issues:
+   The 'NAME' column contains inconsistent text casing, which affects data uniformity.
+   Using df['NAME'].value_counts(), it was observed that the column includes a mix of uppercase, lowercase, and improperly capitalized words. To correct this, we will 
+   standardize text casing by converting each word to title case (capitalizing the first letter of every word).
+
+   The code used for this transformation is:
+   ```python
+   df['NAME'] = df['NAME'].str.title()
+   df['NAME'].value_counts()
+   ```
+   The screenshot below displays the applied code and its output. 
+
+   - (ii). Incorrect Data Type: The last_review column is stored as an object instead of a datetime format:
+   Using df['NAME'].value_counts(), it was observed that the last_review column 
+   
 
 
 
