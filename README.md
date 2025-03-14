@@ -7,7 +7,7 @@ Using the provided datasets, we will explore and implement various cleaning meth
 ## PROBLEM STATEMENT
 1. Standardization
    - Standardize column names by capitalizing all letters to ensure consistency in formatting
-   - Identify and rename columns with lengthy or unclear names
+   - Identify and rename columns with lengthy and unclear names
    - Identify and correct inconsistencies in data formats (e.g., date formats, text casing, categorical values, numerical values).
 3. Handling Missing Data
    - Detect and handle any missing values in the dataset.
@@ -96,24 +96,38 @@ A    |B
    ---
 1, Standardization:
    --
-   - Standardize column names by capitalizing all letters to ensure consistency in formatting
+   - (a). Standardize column names by capitalizing all letters to ensure consistency in formatting:
    ---
-   Based on the assessment using df.columns, it was observed that all column names start with lowercase letters. To ensure consistency, there is a need to standardize the column names by converting them to uppercase.
+   Based on the assessment using df.columns, it was observed that all column names start with lowercase letters. To ensure consistency, there is a need to standardize the 
+   column names by converting them to uppercase.
 
-To achieve this, we use the .upper() string method, which converts all characters in a string to uppercase. The syntax is as follows:
-```python
-df.columns = df.columns.str.upper()  # Capitalize all column names
-df.columns  # Verify the transformation
-```
-The code snippet used to achieve this and its output are shown in the snapshot below.
+   To achieve this, we use the .upper() string method, which converts all characters in a string to uppercase. The syntax is as follows:
+   ```python
+   df.columns = df.columns.str.upper()  # Capitalize all column names
+   df.columns  # Verify the transformation
+   ```
+   The code snippet used to achieve this and its output are shown in the snapshot below.
+
   
     
     
    
-1, Missing Data and Data Integrity:
-   -- 
-   - Detect and handle any missing values in the dataset
+   - (b). Rename columns with lengthy and unclear names:
    ---
+   During the assessment using df.columns, it was discovered that one column (calculated_host_listings_count) has a lengthy and unclear name. To improve the clarity and 
+   readability, we will rename this column using the .rename() function.
+   To do this, we will:
+   - Use the columns argument in .rename() to create a dictionary mapping the old column name to the new one.
+   - Set the inplace=True argument to ensure the change is applied directly to the dataset.
+   - Verify the update by running df.columns.  
+   The code to achieve this transformation is:
+   ```python
+   df.rename(columns={'calculated_host_listings_count': 'host_count'}, inplace=True)
+   ```
+   The output of the above is shown in the snapshot below.
+
+   - (c). Identify and correct inconsistencies in data formats (e.g., date formats, text casing, categorical values, numerical values):
+
 
 
 
