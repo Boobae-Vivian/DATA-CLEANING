@@ -213,13 +213,44 @@ Below is the snapshot showing the applied code and results.
    --
    - (a). Validate that the cleaned dataset is accurate, complete, and consistent for analysis.
    ---
-   While during the cleaning, we were also validating that the change reflected in the dataset. below are the codes used to confirm effect
-   - df.columns : This verified that column names were successfully  converted to uppercase and Renaming 'calculated_host_listings_count' column was successfully renamed 
-   Host_count
-   - df['NAME'].value_counts(): This was used to confirm that text casing issue in the 'NAME' column was cleaned and effected
-   - df['last_review'].dtype and df.info(): these codes were used to confirm that LAST_REVIEW column was succesffully cahnged from object to datatime dtype
-   - df.isnull().sum(): This was used to confirm that all missing values have been handled successfully.
+   Throughout the data cleaning process, we continuously validated that the transformations were successfully implemented. Below are the key checks performed to confirm the 
+   effectiveness of each cleaning step:
 
+   (i). Column Name Standardization & Renaming
+      code used:
+      ```python
+      df.columns
+      ``` 
+      The code verified that all column names were successfully converted to uppercase and confirmed that the column 'calculated_host_listings_count' was successfully 
+      renamed to 'HOST_COUNT'.
+      
+   (ii). Text Casing Standardization
+      code used:
+      ```python
+      df['NAME'].value_counts()
+      ```
+      This ensured that text casing inconsistencies in the 'NAME' column were corrected and verified that all values in the 'NAME' column now follow the proper casing 
+      format.
+   
+   (iii). Data Type Correction
+     code used:  
+     ```python
+     df['LAST_REVIEW'].dtype  
+     df.info()
+     ```
+     This confirmed that the 'LAST_REVIEW' column was successfully converted from object to datetime format and is now in the correct data type for date-related analysis.
+   
+   (iv). Handling Missing Values
+      code used:
+      ```python
+      df.isnull().sum()
+      ```
+      This ensured that all missing values were properly handled as well as verified that all previously detected missing values have been appropriately addressed.
+   
+   (v). Outlier Treatment Validation: 
+     The outlier detection method was re-run and was confirmed that extreme values were successfully handled.
+   
+   Below are the screenshots showcasing the results of the final data quality check after cleaning. 
    
 
 
