@@ -47,7 +47,7 @@ The project comprises three critical stages essential for successful completion,
    The snapshot below shows the code snippet used to import the necessary Python libraries for data cleaning and data importation:
    LIBRARIES AND DATA IMPORTATION
    :-----------------------------:
-   ![](Saless/library.png)
+   ![](cleaned/libanddata.png)
 
 2. "Data Assessment to Detect Data Quality Issues":
    --- 
@@ -97,7 +97,7 @@ The project comprises three critical stages essential for successful completion,
    These assessments and data quality issue detected are illustrated in the snapshots below. 
    A    |B    |  C
    :---:|:---:|:----:
-   ![](Saless/datass1.png)|![](Saless/datass2.png)|![](Saless/datass2.png)
+   ![](cleaned/das1.png)|![](cleaned/das2.png)|![](cleaned/das3.png)
 
 3. "Data Cleaning (Analysis of the Problem Statement)":
    ---
@@ -117,7 +117,7 @@ The project comprises three critical stages essential for successful completion,
 
    BEFORE           |    AFTER
    :---------------:|:--------------:
-   ![](Saless/timeindex3.png)|![](Saless/timeindex4.png)
+   ![](cleaned/scolumnb.png)|![](cleaned/scolumna.png)
   
     
      
@@ -137,7 +137,7 @@ The project comprises three critical stages essential for successful completion,
    
    BEFORE           |    AFTER
    :---------------:|:--------------:
-   ![](Saless/timeindex3.png)|![](Saless/timeindex4.png)
+   ![](cleaned/longcolb.png)|![](cleaned/longcola.png)
   
 
    - (c). Correct inconsistencies in data formats:
@@ -157,7 +157,7 @@ The project comprises three critical stages essential for successful completion,
 
     BEFORE           |    AFTER
    :---------------:|:--------------:
-   ![](Saless/timeindex3.png)|![](Saless/timeindex4.png)
+   ![](cleaned/textcaseb.png)|![](cleaned/textcasea.png)
 
    - (ii). Incorrect Data Type(last_review Column):
    ---
@@ -176,7 +176,7 @@ The project comprises three critical stages essential for successful completion,
 
    BEFORE           |    AFTER
    :---------------:|:--------------:
-   ![](Saless/timeindex3.png)|![](Saless/timeindex4.png)
+   ![](cleaned/dtyeb.png))|![](cleaned/dtyea.png))
 
 2. Handling Missing Data:
    --
@@ -203,7 +203,7 @@ The project comprises three critical stages essential for successful completion,
 
    BEFORE           |    AFTER
    :---------------:|:--------------:
-   ![](Saless/timeindex3.png)|![](Saless/timeindex4.png)
+   ![](cleaned/missingb.png))|![](cleaned/missinga.png))
 
    
 
@@ -244,7 +244,7 @@ The project comprises three critical stages essential for successful completion,
 
     OUTLIERS          |  ADDRESSING OUTLIERS        
    :-----------------:|:--------------------:
-   ![](Saless/timeindex3.png)|![](Saless/timeindex4.png)
+   ![](cleaned/outb.png))|![](cleaned/outa.png))
 
 
 6. Final Data Quality Check:
@@ -292,11 +292,11 @@ The project comprises three critical stages essential for successful completion,
 
    CLEANED DATASET
    :-----------------------------:
-   ![](Saless/library.png)
+   ![](cleaned/result.png))
 
     OUTLIERS          |  ADDRESSING OUTLIERS        
    :-----------------:|:--------------------:
-   ![](Saless/timeindex3.png)|![](Saless/timeindex4.png)
+   ![](cleaned/resultb.png))|![](cleaned/result.png))
 
 
    
