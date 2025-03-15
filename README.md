@@ -65,15 +65,17 @@ The project comprises three critical stages essential for successful completion,
    contains 48,895 rows and 16 columns.
 
    - df.columns: Since data cleaning focuses on maintaining integrity, it is important to review the column names. This function displays all 16 column names. During the 
-   assessment, it was observed that all column names started with lowercase letters, which would require standardization. Additionally, one column had a lengthy name that 
-   would be shortened for clarity and readability.
+   assessment, it was observed that all column names started with lowercase letters, which would require standardization. Additionally, 'calculated_host_listings_count'
+   column had a lengthy and unclear name that would be shortened for clarity and readability.
 
-   - df['column_name'].value_counts(): This function helps analyze categorical variables by displaying unique values and their frequencies. It also aids in detecting 
-   inconsistencies in observational units across variables. The pd.set_option('display.max_rows', None) was utilized to critically examine each columns.    
-   Key findings include:  
+   - df['column_names'].value_counts(): This function helps analyze categorical variables by displaying unique values and their frequencies. It also aids in detecting 
+   inconsistencies in observational units across variables. The pd.set_option('display.max_rows', None) was utilized to critically examine each columns.
+   Key finding include:  
      - name column has text casing inconsistencies.
-     - last_review column is incorrectly stored as an object instead of a datetime format.
-    
+   
+   - df.info(): This function dispays a concise summary of the DataFrame, including data types and memory usage. The output revealed that all data types are correct except 
+     the 'last_review column' which has an incorrect data type (object - instead of datetime), as highlighted with a yellow rectangle shape in the snapshot below.
+     
    - df.isnull().sum(): Identifies missing values in each column. The following columns were found to have missing values:
      - name: 16 missing values
      - host_name: 21 missing values
@@ -93,9 +95,9 @@ The project comprises three critical stages essential for successful completion,
 
 
    These assessments and data quality issue detected are illustrated in the snapshots below. 
-   A    |B    
-   :---:|:---:
-   ![](Saless/datass1.png)|![](Saless/datass2.png)
+   A    |B    |  C
+   :---:|:---:|:----:
+   ![](Saless/datass1.png)|![](Saless/datass2.png)|![](Saless/datass2.png)
 
 3. "Data Cleaning (Analysis of the Problem Statement)":
    ---
@@ -113,13 +115,12 @@ The project comprises three critical stages essential for successful completion,
    ```
    The code snippet used to achieve this and its output are shown in the snapshot below.
 
-   LIBRARIES AND DATA IMPORTATION
-   :-----------------------------:
-   ![](Saless/library.png)
+   BEFORE           |    AFTER
+   :---------------:|:--------------:
+   ![](Saless/timeindex3.png)|![](Saless/timeindex4.png)
   
     
-    
-   
+     
    - (b). Rename columns with lengthy and unclear names:
    ---
    During the assessment using df.columns, it was discovered that one column (calculated_host_listings_count) has a lengthy and unclear name. To improve the clarity and 
@@ -133,10 +134,11 @@ The project comprises three critical stages essential for successful completion,
    df.rename(columns={'calculated_host_listings_count': 'host_count'}, inplace=True)
    ```
    The output of the above is shown in the snapshot below.
-
-   LIBRARIES AND DATA IMPORTATION
-   :-----------------------------:
-   ![](Saless/library.png)
+   
+   BEFORE           |    AFTER
+   :---------------:|:--------------:
+   ![](Saless/timeindex3.png)|![](Saless/timeindex4.png)
+  
 
    - (c). Correct inconsistencies in data formats:
    ---
@@ -153,9 +155,9 @@ The project comprises three critical stages essential for successful completion,
    ```
    The screenshot below displays the applied code and its output.
 
-   LIBRARIES AND DATA IMPORTATION
-   :-----------------------------:
-   ![](Saless/library.png)
+    BEFORE           |    AFTER
+   :---------------:|:--------------:
+   ![](Saless/timeindex3.png)|![](Saless/timeindex4.png)
 
    - (ii). Incorrect Data Type(last_review Column):
    ---
