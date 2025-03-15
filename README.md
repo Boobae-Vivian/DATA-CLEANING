@@ -131,13 +131,13 @@ The project comprises three critical stages essential for successful completion,
    - Verify the update by running df.columns.  
    The code to achieve this transformation is:
    ```python
-   df.rename(columns={'calculated_host_listings_count': 'host_count'}, inplace=True)
+   df.rename(columns={'CALCULATED_HOST_LISTINGS_COUNT': 'HOST_COUNT'}, inplace=True)
    ```
    The output of the above is shown in the snapshot below.
    
    BEFORE           |    AFTER
    :---------------:|:--------------:
-   ![](cleaned/longcolb.png)|![](cleaned/longcola.png)
+   ![](longcolb.png)|![](longcola.png)
   
 
    - (c). Correct inconsistencies in data formats:
@@ -166,8 +166,8 @@ The project comprises three critical stages essential for successful completion,
 
    To correct this, the following code was used:
    ```python
-   df['last_review'] = pd.to_datetime(df['last_review'])
-   df['last_review'].dtype  # Check the new data type
+   df['LAST_REVIEW'] = pd.to_datetime(df['LAST_REVIEW'])
+   df['LAST_REVIEW'].dtype  # Check the new data type
    df.info()  # Confirm overall dataset structure
    ```
    The corrected data type ensures that 'last_review' can now be used effectively for date-based analysis.
@@ -203,7 +203,7 @@ The project comprises three critical stages essential for successful completion,
 
    BEFORE           |    AFTER
    :---------------:|:--------------:
-   ![](cleaned/missingb.png))|![](cleaned/missinga.png))
+   ![](cleaned/missingb.png))|![](missinga.png))
 
    
 
@@ -244,7 +244,7 @@ The project comprises three critical stages essential for successful completion,
 
     OUTLIERS          |  ADDRESSING OUTLIERS        
    :-----------------:|:--------------------:
-   ![](cleaned/outb.png))|![](cleaned/outa.png))
+   ![](cleaned/outb.png)|![](cleaned/outa.png)
 
 
 6. Final Data Quality Check:
@@ -294,9 +294,27 @@ The project comprises three critical stages essential for successful completion,
    :-----------------------------:
    ![](cleaned/result.png))
 
-    OUTLIERS          |  ADDRESSING OUTLIERS        
+    BEFORE CLEANING          |  AFTER CLEANING       
    :-----------------:|:--------------------:
-   ![](cleaned/resultb.png))|![](cleaned/result.png))
+   ![](cleaned/resultb.png)|![](cleaned/result.png)
+
+## RECOMMENDATIONS
+
+To maintain high data quality in future data collection and storage processes, the following recommendations are suggested:
+
+- Implement data validation at entry points by enforcing data type constraints
+- Set mandatory fields to avoid missing values in critical columns
+- Standardize data entry guidelines by using a consistent text format (e.g., title case for names)
+- Automate data cleaning processes by using automated scripts to check for missing values and inconsistencies periodically
+- Monitor and handle outliers regularly by establishing thresholds for numerical variables to detect extreme values.
+
+By implementing these recommendations, future datasets will require minimal cleaning, ensuring efficiency and accuracy in data-driven decision-making.
+
+## CONCLUSION
+
+The data cleaning process was essential to improving the quality and reliability of the dataset. Initially, several issues were detected, including missing values, inconsistent text formatting, incorrect data type and outliers. However, through systematic cleaning steps such as renaming columns, handling missing data, standardizing text formats, converting data type and treating outliers, the dataset was refined to ensure accuracy, completeness, and consistency.
+
+After cleaning, a final data quality check confirmed that all identified issues had been successfully addressed. The dataset is now well-structured, reliable, and ready for further analysis.
 
 
    
