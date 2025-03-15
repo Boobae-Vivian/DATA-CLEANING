@@ -9,13 +9,11 @@ Using the provided datasets, we will explore and implement various cleaning meth
    - Standardize column names by capitalizing all letters to ensure consistency in formatting
    - Identify and rename columns with lengthy and unclear names
    - Identify and correct inconsistencies in data formats.
-3. Handling Missing Data
+2. Handling Missing Data
    - Detect and handle any missing values in the dataset.
-4. Duplicate Handling
-   - Identify and remove duplicate records if any to maintain data uniqueness.
-5. Outlier Detection
+3. Outlier Detection
    - Identify and address extreme values (outliers) that could distort analysis.
-6. Final Data Quality Check
+4. Final Data Quality Check
    - Validate that the cleaned dataset is accurate, complete, and consistent for analysis.
      
 ## SKILLS and CONCEPTS DEMONSTRATED
@@ -84,7 +82,7 @@ The data quality issues identified include:
 - A lengthy and unclear column name (Calculated_Host_Listing_Count) which needs to be shortened for clarity and readability.
 - Text Casing Issues: The name column contains inconsistent text casing.
 - Incorrect Data Type: The last_review column is stored as an object instead of a datetime format.
-- Missing Values: The name, host_name, last_review, and review_per_month columns contain missing values, with the last two having a significant amount (10,052 missing values each).
+- Missing Values: The name, host_name, last_review, and reviews_per_month columns contain missing values, with the last two having a significant amount (10,052 missing values each).
 
 
 These assessments and data quality issue detected are illustrated in the snapshots below. 
@@ -129,6 +127,7 @@ A    |B
    - (c). Identify and correct inconsistencies in data formats:
    ---
    - (i). Text Casing Issues:
+   ---
    The 'NAME' column contains inconsistent text casing, which affects data uniformity.
    Using df['NAME'].value_counts(), it was observed that the column includes a mix of uppercase, lowercase, and improperly capitalized words. To correct this, we will 
    standardize text casing by converting each word to title case (capitalizing the first letter of every word).
@@ -140,9 +139,45 @@ A    |B
    ```
    The screenshot below displays the applied code and its output. 
 
-   - (ii). Incorrect Data Type: The last_review column is stored as an object instead of a datetime format:
-   Using df['NAME'].value_counts(), it was observed that the last_review column 
-   
+   - (ii). Incorrect Data Type(last_review Column):
+   ---
+During data assessment using df.info() and df['column'].value_counts() , it was observed that all columns had the correct data types except the 'last_review' column, which was stored as an object instead of a datetime format.
+
+To correct this, the following code was used:
+```python
+df['last_review'] = pd.to_datetime(df['last_review'])
+df['last_review'].dtype  # Check the new data type
+df.info()  # Confirm overall dataset structure
+```
+The corrected data type ensures that 'last_review' can now be used effectively for date-based analysis.  
+Below is the snapshot showing the applied code and results.
+
+2. Handling Missing Data:
+   --
+   - (a). Handle any missing values in the dataset:
+   ---
+   During data assessment using df.isnull().sum(), missing values were detected in four different columns:
+
+   - name: 16 missing values
+   - host_name: 21 missing values
+   - last_review: 10,052 missing values
+   - reviews_per_month: 10,052 missing values.
+  
+   To address these missing values:
+
+   - Since name and host_name are text columns, missing values will be flagged as "Unspecified".
+   - last_review is a date column, and dropping it is not ideal since the missing values has a significant number. Instead, missing values will be filled with the earliest 
+   available date.
+   - reviews_per_month is a numerical column, so missing values will be filled with the median value to maintain data consistency.
+     
+   These corrections will be applied using the .fillna() function. Afterward, df.isnull().sum() will be used to confirm that all missing values have been handled successfully.
+
+   Below is a snapshot of the code snippets used and the changes observed after handling the missing values.
+
+
+
+
+
 
 
 
