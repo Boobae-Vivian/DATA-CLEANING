@@ -174,8 +174,53 @@ Below is the snapshot showing the applied code and results.
 
    Below is a snapshot of the code snippets used and the changes observed after handling the missing values.
 
+3. Outlier Detection:
+   --
+   - (a). Identify and address extreme values (outliers) that could distort analysis:
+   ---
+   Outliers can distort analysis and impact the accuracy of insights derived from data. To detect and handle extreme values, we employed the Interquartile Range (IQR) 
+   method, which helps identify outliers by determining values that fall outside the expected range.
 
+   Step 1: Identifying Outliers  
+   First, we selected only the numerical columns using the select_dtypes() function and stored them in a variable called numerical_df.
 
+   We computed the IQR, defined outlier thresholds, and identified extreme values.
+
+   Upon running the analysis, the following columns were found to contain outliers:
+
+  - HOST_ID → 1,526 outliers
+  - LATITUDE → 425 outliers
+  - LONGITUDE → 2,833 outliers
+  - PRICE → 2,972 outliers
+  - MINIMUM_NIGHTS → 6,607 outliers
+  - NUMBER_OF_REVIEWS → 6,021 outliers
+  - REVIEWS_PER_MONTH → 4,103 outliers
+  - HOST_COUNT → 7,081 outliers
+    
+  Step 2: Addressing Outliers  
+  
+  To handle these extreme values, we applied the clip() function, which replaces values exceeding the lower and upper thresholds with the respective boundary values. This 
+  ensures the dataset remains within a reasonable range without removing crucial data.
+
+  Step 3: Verifying Changes
+  
+  After applying the correction, we re-ran the outlier detection code to confirm that the extreme values were properly handled. The updated distribution of values was 
+  examined to ensure that no distortions remained.
+
+  Below is a screenshot showing the code implementation and results.
+
+4. Final Data Quality Check:
+   --
+   - (a). Validate that the cleaned dataset is accurate, complete, and consistent for analysis.
+   ---
+   While during the cleaning, we were also validating that the change reflected in the dataset. below are the codes used to confirm effect
+   - df.columns : This verified that column names were successfully  converted to uppercase and Renaming 'calculated_host_listings_count' column was successfully renamed 
+   Host_count
+   - df['NAME'].value_counts(): This was used to confirm that text casing issue in the 'NAME' column was cleaned and effected
+   - df['last_review'].dtype and df.info(): these codes were used to confirm that LAST_REVIEW column was succesffully cahnged from object to datatime dtype
+   - df.isnull().sum(): This was used to confirm that all missing values have been handled successfully.
+
+   
 
 
 
