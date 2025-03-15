@@ -174,9 +174,9 @@ The project comprises three critical stages essential for successful completion,
    
    Below is the snapshot showing the applied code and results.
 
-   LIBRARIES AND DATA IMPORTATION
-   :-----------------------------:
-   ![](Saless/library.png)
+   BEFORE           |    AFTER
+   :---------------:|:--------------:
+   ![](Saless/timeindex3.png)|![](Saless/timeindex4.png)
 
 2. Handling Missing Data:
    --
@@ -201,11 +201,13 @@ The project comprises three critical stages essential for successful completion,
 
    Below is a snapshot of the code snippets used and the changes observed after handling the missing values.
 
-   LIBRARIES AND DATA IMPORTATION
-   :-----------------------------:
-   ![](Saless/library.png)
+   BEFORE           |    AFTER
+   :---------------:|:--------------:
+   ![](Saless/timeindex3.png)|![](Saless/timeindex4.png)
 
-3. Outlier Detection:
+   
+
+4. Outlier Detection:
    --
    - (a). Identify and address extreme values (outliers) that could distort analysis:
    ---
@@ -240,11 +242,12 @@ The project comprises three critical stages essential for successful completion,
 
    Below is a screenshot showing the code implementation and results.
 
-   LIBRARIES AND DATA IMPORTATION
-   :-----------------------------:
-   ![](Saless/library.png)
+    OUTLIERS          |  ADDRESSING OUTLIERS        
+   :-----------------:|:--------------------:
+   ![](Saless/timeindex3.png)|![](Saless/timeindex4.png)
 
-5. Final Data Quality Check:
+
+6. Final Data Quality Check:
    --
    - (a). Validate that the cleaned dataset is accurate, complete, and consistent for analysis.
    ---
@@ -285,7 +288,17 @@ The project comprises three critical stages essential for successful completion,
    (v). Outlier Treatment Validation: 
      The outlier detection method was re-run and was confirmed that extreme values were successfully handled.
    
-   Below are the screenshots showcasing the results of the final data quality check after cleaning. 
+   Below is screenshots of the cleaned dataset showcasing the final data quality check after cleaning.
+
+   CLEANED DATASET
+   :-----------------------------:
+   ![](Saless/library.png)
+
+    OUTLIERS          |  ADDRESSING OUTLIERS        
+   :-----------------:|:--------------------:
+   ![](Saless/timeindex3.png)|![](Saless/timeindex4.png)
+
+
    
 
 
